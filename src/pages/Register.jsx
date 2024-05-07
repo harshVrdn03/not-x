@@ -16,10 +16,13 @@ export default function Register() {
       setLoading(true);
       const imageURL = await handleFileUpload(data.image[0]);
 
-      const res = await axios.post("http://localhost:8000/api/auth/register", {
-        ...data,
-        image: imageURL,
-      });
+      const res = await axios.post(
+        "https://not-x-backend.onrender.com/api/auth/register",
+        {
+          ...data,
+          image: imageURL,
+        }
+      );
       toast.success("Successfully registered");
       navigate("/login");
     } catch (e) {
