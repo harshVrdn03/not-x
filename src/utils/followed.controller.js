@@ -1,9 +1,10 @@
 import axios from "axios";
+import API_URL from "../constant/constant";
 
 const followed = async (token, followingId) => {
   try {
     const res = await axios.post(
-      `https://not-x-backend.onrender.com/api/user/${followingId}/followed`,
+      `${API_URL}/api/user/${followingId}/followed`,
       {
         token,
         followingId,

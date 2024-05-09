@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Loading from "../components/Loading";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import API_URL from "../constant/constant";
 
 export default function Friends() {
   const [friends, setFriends] = useState([]);
@@ -15,12 +16,9 @@ export default function Friends() {
       setFetching(true);
       const token = localStorage.getItem("user_token");
       if (token) {
-        const res = await axios.post(
-          "https://not-x-backend.onrender.com/api/user/following",
-          {
-            token,
-          }
-        );
+        const res = await axios.post(`${API_URL}/api/user/following`, {
+          token,
+        });
         console.log(res);
         setFriends(res.data.friends);
       }

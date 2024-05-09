@@ -6,6 +6,7 @@ import axios from "axios";
 import handleFileUpload from "../firebase";
 import toast from "react-hot-toast";
 import backgroundImage from "./../assets/background.png";
+import API_URL from "../constant/constant";
 
 export default function Register() {
   const { register, handleSubmit, reset } = useForm();
@@ -16,13 +17,10 @@ export default function Register() {
       setLoading(true);
       const imageURL = await handleFileUpload(data.image[0]);
 
-      const res = await axios.post(
-        "https://not-x-backend.onrender.com/api/auth/register",
-        {
-          ...data,
-          image: imageURL,
-        }
-      );
+      const res = await axios.post(`${API_URL}/api/auth/register`, {
+        ...data,
+        image: imageURL,
+      });
       toast.success("Successfully registered");
       navigate("/login");
     } catch (e) {

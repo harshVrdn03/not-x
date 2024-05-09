@@ -44,8 +44,8 @@ export default function Login() {
     }
   };
   return (
-    <section class="bg-gray-50 dark:bg-gray-900  ">
-      <div class="flex flex-col  relative  items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+    <section class="bg-gray-50 dark:bg-gray-900  h-screen ">
+      <div class="flex flex-col  h-screen relative  items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
         <img
           src={backgroundImage}
           className="w-full h-full  absolute  z-[1]"

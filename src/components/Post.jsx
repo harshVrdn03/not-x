@@ -13,6 +13,7 @@ import Loading from "./Loading";
 import axios from "axios";
 import UseTrigger from "../store/triggrer";
 import toast from "react-hot-toast";
+import API_URL from "../constant/constant";
 export default function Post({
   postInfo,
   postId,
@@ -80,10 +81,9 @@ export default function Post({
     try {
       const token = localStorage.getItem("user_token");
       if (token) {
-        const res = await axios.post(
-          `https://not-x-backend.onrender.com/api/post/${postId}/delete`,
-          { token }
-        );
+        const res = await axios.post(`${API_URL}/api/post/${postId}/delete`, {
+          token,
+        });
         toast.success("post deleted ");
         setPostTrigger();
         console.log(res);

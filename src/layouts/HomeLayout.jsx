@@ -58,7 +58,6 @@ export default function HomeLayout() {
         toast.error("Unauthorized");
         navigate("/login");
       }
-      toast.error("Server error");
       navigate("/login");
     } finally {
       setLoadingHome(false);

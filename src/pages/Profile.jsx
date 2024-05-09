@@ -3,6 +3,7 @@ import ProfileCard from "../components/ProfileCard";
 import Posts from "../components/Posts";
 import axios from "axios";
 import Post from "../components/Post";
+import API_URL from "../constant/constant";
 
 export default function Profile() {
   const [posts, setPosts] = useState([]);
@@ -10,12 +11,9 @@ export default function Profile() {
     try {
       const token = localStorage.getItem("user_token");
       if (token) {
-        const res = await axios.post(
-          "https://not-x-backend.onrender.com/api/post/myposts",
-          {
-            token,
-          }
-        );
+        const res = await axios.post(`${API_URL}/api/post/myposts`, {
+          token,
+        });
         setPosts(res.data.posts);
       }
     } catch (e) {
